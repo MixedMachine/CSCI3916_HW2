@@ -94,6 +94,53 @@ router.route('/testcollection')
     }
     );
 
+router.route('/movies')
+    .get(authJwtController.isAuthenticated, function(req, res){
+        console.log(req.body);
+        res = res.status(200)
+        res.json({
+            "status":  200,
+            "message": "GET movies",
+            "headers": req.headers.json,
+            "query":   req.body,
+            "env": "?"
+        });
+
+    })
+    .post(authJwtController.isAuthenticated, function(req, res){
+        console.log(req.body);
+        res = res.status(200);
+        res.json({
+            "status":  200,
+            "message": "movie saved",
+            "headers": req.headers.json,
+            "query":   req.body,
+            "env": "?"
+        });
+    })
+    .put(authJwtController.isAuthenticated, function(req, res){
+        console.log(req.body);
+        res = res.status(200);
+        res.json({
+            "status":  200,
+            "message": "movie updated",
+            "headers": req.headers.json,
+            "query":   req.body,
+            "env": "?"
+        });
+    })
+    .delete(authJwtController.isAuthenticated, function(req, res) {
+        console.log(req.body);
+        res = res.status(200)
+        res.json({
+            "status":  200,
+            "message": "movie deleted",
+            "headers": req.headers.json,
+            "query":   req.body,
+            "env": "?"
+        });
+    })
+
 app.use('/', router);
 app.listen(process.env.PORT || 8080);
 module.exports = app; // for testing only
