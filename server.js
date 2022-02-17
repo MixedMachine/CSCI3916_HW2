@@ -102,7 +102,7 @@ router.route('/test-collection')
  * *PUT requires JWT Authentication
  * *DELETE requires Basic Auth
  **********************************************************************************************************************/
-router.route('/api/movies')
+router.route('/movies')
     .post(function(req, res){ // Create
         console.log("PST| ", req.body);
         res = res.status(200);
